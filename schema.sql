@@ -5,25 +5,43 @@ CREATE DATABASE menu_db;
 USE menu_db;
 
 CREATE TABLE menus (
-  id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  rest_id int NOT NULL,
-  rest_name varchar(50) NOT NULL,
-  menu_type_num int NOT NULL,
-  menu_type_name varchar(50) NOT NULL,
-  menu_section_num int NOT NULL,
-  menu_section_name varchar(50) NOT NULL,
-  menu_section_description text NULL,
-  menu_item_name varchar(50) NOT NULL,
-  menu_item_description text NULL,
-  menu_item_price varchar(50) NULL
+  id serial,
+  restaurant_id int,
+  menu_type_id int,
+  menu_section_id int,
+  menu_item_name varchar(50),
+  menu_item_price numeric
 );
 
-CREATE TABLE photos (
-  id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  rest_id int NOT NULL,
-  photo_id int NOT NULL,
-  photoURL text NOT NULL
+CREATE TABLE menus (
+  id serial primary key,
+  rest_id int,
+  rest_name varchar(50),
+  menu_type_num smallint,
+  menu_type_name varchar(50),
+  menu_section_num smallint,
+  menu_section_name varchar(50),
+  menu_item_name varchar(50),
+  menu_item_description text,
+  menu_item_price numeric
 );
+
+rest_id, rest_name, menu_type_num, menu_type_name, menu_section_num, menu_section_name,menu_item_name,menu_item_description,menu_item_price
+
+
+
+id int
+restaurant_id int
+menu_type_id int 0-2
+menu_type_id int 0-2
+name varchar(100)
+price numeric
+-- CREATE TABLE photos (
+--   id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+--   rest_id int NOT NULL,
+--   photo_id int NOT NULL,
+--   photoURL text NOT NULL
+-- );
 
 
 INSERT into menus (rest_id, rest_name, menu_type_num, menu_type_name, menu_section_num, menu_section_name, menu_section_description, menu_item_name, menu_item_description, menu_item_price) VALUES (0,"The Red WheelBarrow", 0, "Breakfast", 0, "Appetizer", null, "Bread", null, "$99.42");
