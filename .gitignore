@@ -61,3 +61,11 @@ typings/
 .next
 
 CSV/
+
+newrelic.js
+
+client/dist/default
+client/dist/loaderio-99b7139bcf49abdfec26f67848ff11d1.txt
+client/dist/pg_hba.conf
+client/dist/postgresql.conf
+client/dist/txt

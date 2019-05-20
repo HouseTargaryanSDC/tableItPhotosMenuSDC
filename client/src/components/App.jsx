@@ -42,14 +42,13 @@ class App extends React.Component {
             // document.getElementById("containerContentid").style.zIndex = "25"
              
             return <View  
-            photoID = {this.state.currentPhoto} 
-            restID = {this.state.rest_id}
-            handleEscape ={this.handleEscape}
+                photoID = {this.state.currentPhoto} 
+                restID = {this.state.rest_id}
+                handleEscape ={this.handleEscape}
             />
         } else {
             // document.getElementById("containerContentid").style.zIndex = "1"
             return (
-                
                 <div className = {styles.appcontainer}>    
                     <Photo 
                         handlePictureClick = {this.handlePictureClick}/>

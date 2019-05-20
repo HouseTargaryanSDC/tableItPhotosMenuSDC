@@ -1,0 +1,13 @@
+config:
+  target: 'http://54.215.198.75/api/menus'
+  phases:
+    - duration: 900
+      arrivalRate: 50
+  processor: './artilleryScript.js'
+scenarios:
+  - flow:
+    - loop: 
+      - function: "generateRandId"
+      - get:
+          url: "/{{ id }}"
+      count: 5

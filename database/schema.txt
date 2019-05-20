@@ -1,0 +1,67 @@
+-- postgres schema
+
+CREATE TABLE menus (
+  id serial primary key,
+  rest_id int,
+  rest_name varchar(50),
+  menu_type_num smallint,
+  menu_type_name varchar(50),
+  menu_section_num smallint,
+  menu_section_name varchar(50),
+  menu_item_name varchar(50),
+  menu_item_description text,
+  menu_item_price numeric
+);
+
+
+\COPY menus(rest_id,rest_name,menu_type_num,menu_type_name,menu_section_num,menu_section_name,menu_item_name,menu_item_description,menu_item_price) FROM '/Users/tommyliao/Desktop/HRLA26/SDC/tableItPhotosMenuSDC/CSV/bigboi.csv' DELIMITER ',' CSV HEADER;
+-- mongo schema
+
+rest_id,rest_name,menu_type_num,menu_type_name,menu_section_num,menu_section_name,menu_item_name,menu_item_description,menu_item_price
+
+db.menus.insert({
+  rest_id: "421373",
+  rest_name: "Primordial",
+  menu_type_num: 1,
+  menu_type_name: "Lunch",
+  menu_section_num: 1,
+  menu_section_name: "Mains",
+  menu_item_name: "Raspberry Ice Lollies",
+  menu_item_description: "Caramel PancakesVanilla Trifle",
+  menu_item_price: 9.13
+})
+
+sudo apt update
+sudo apt install postgresql postgresql-contrib
+sudo chmod -R ugo+rw /etc/postgresql/10/main
+-- change config
+sudo service postgresql restart
+sudo -i -u postgres
+create database tablelit;
+psql tablelit
+CREATE TABLE menus (
+  id serial primary key,
+  rest_id int,
+  rest_name varchar(50),
+  menu_type_num smallint,
+  menu_type_name varchar(50),
+  menu_section_num smallint,
+  menu_section_name varchar(50),
+  menu_item_name varchar(50),
+  menu_item_description text,
+  menu_item_price numeric
+);
+
+
+
+psql -h 54.183.185.112 -p 5432 -U postgres tablelit
+
+\COPY menus(rest_id,rest_name,menu_type_num,menu_type_name,menu_section_num,menu_section_name,menu_item_name,menu_item_description,menu_item_price) FROM '/Users/tommyliao/Desktop/HRLA26/SDC/tableItPhotosMenuSDC/CSV/bigboi.csv' DELIMITER ',' CSV HEADER;
+
+CREATE INDEX rest_id ON menus(rest_id);
+
+sudo service nginx restart
+
+sudo chmod -R ugo+rw /etc/nginx/
+
+sudo nano /var/www/html/tablelit/loaderio-99b7139bcf49abdfec26f67848ff11d1.txt

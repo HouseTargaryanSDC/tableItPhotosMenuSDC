@@ -78,24 +78,8 @@ function foodNameGen() {
   return foodName;
 }
 
-// CREATE TABLE menus (
-//   id serial primary key,
-//   rest_id int,
-//   rest_name varchar(50),
-//   menu_type_num smallint,
-//   menu_type_name varchar(50),
-//   menu_section_num smallint,
-//   menu_section_name varchar(50),
-//   menu_item_name varchar(50),
-//   menu_item_description text,
-//   menu_item_price numeric
-// );
-
 const start = Date.now();
 const writeStream = fs.createWriteStream('./CSV/bigboi.csv');
-
-// // write some data with a base64 encoding
-// writeStream.write(`rest_id,rest_name,menu_type_num,menu_type_name,menu_section_num,menu_section_name,menu_item_price\n`);
 
 const menuTypeName = ['Breakfast', 'Lunch', 'Dinner'];
 const menuSectionName = ['Appetizer', 'Mains', 'Desserts'];

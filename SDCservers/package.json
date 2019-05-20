@@ -1,0 +1,22 @@
+{
+  "name": "package",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hrla26-fec-opentable/sris-menu-photos.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hrla26-fec-opentable/sris-menu-photos/issues"
+  },
+  "homepage": "https://github.com/hrla26-fec-opentable/sris-menu-photos#readme",
+  "dependencies": {
+    "pg": "^7.8.0"
+  }
+}

@@ -20,41 +20,42 @@ class MenuApp extends React.Component {
     this.click = this.click.bind(this)
   }
 
-  componentWillMount() {
-    this.filterDatabyMenuType()
-    this.getMenus(this.state.rest_id)
-    this.findUniqueMenuTypes()
+  componentDidMount() {
+    // this.filterDatabyMenuType()
+    this.getMenus(3);
+    // this.findUniqueMenuTypes()
     
   }
 
   // http://54.219.151.33:9003/
 
-  findUniqueMenuTypes() {
-    axios
-      // .get(`http://127.0.0.1:9003/api/menus/${this.state.rest_id}`)
-      // .get(`/api/menus/${this.state.rest_id}`)
-      .get(`http://54.219.151.33:9003/api/menus/${this.state.rest_id}`)                    
-      .then(({ data }) => this.retrieveUniqueMenuTypes(data))
-      .then((data) => this.setState({menu_types: data}));
-  }
+  // findUniqueMenuTypes() {
+  //   axios
+  //     // .get(`http://127.0.0.1:9003/api/menus/${this.state.rest_id}`)
+  //     // .get(`/api/menus/${this.state.rest_id}`)
+  //     .get(`http://localhost:3000/api/menus/?${this.state.rest_id}`)                    
+  //     .then(({ data }) => this.retrieveUniqueMenuTypes(data))
+  //     .then((data) => this.setState({menu_types: data}));
+  // }
 
-  filterDatabyMenuType() {
-    axios
-    // .get(`http://127.0.0.1:9003/api/menus/${this.state.rest_id}`)  
-    // .get(`/api/menus/${this.state.rest_id}`)
-    .get(`http://54.219.151.33:9003/api/menus/${this.state.rest_id}`)        
+  // filterDatabyMenuType() {
+  //   axios
+  //   // .get(`http://127.0.0.1:9003/api/menus/${this.state.rest_id}`)  
+  //   // .get(`/api/menus/${this.state.rest_id}`)
+  //   .get(`http://54.219.151.33:9003/api/menus/${this.state.rest_id}`)        
         
-    .then(({ data }) => data.filter(obj => obj.menu_type_num === this.state.menu_state))
-    .then((data)=> this.setState({filtered_menu_data: data}))
-  }
+  //   .then(({ data }) => data.filter(obj => obj.menu_type_num === this.state.menu_state))
+  //   .then((data)=> this.setState({filtered_menu_data: data}))
+  // }
 
 
   getMenus(rest_id) {
     axios
       // .get(`http://127.0.0.1:9003/api/menus/${rest_id}`)
       // .get(`/api/menus/${rest_id}`)
-      .get(`http://54.219.151.33:9003/api/menus/${rest_id}`)          
-      .then(({ data }) => this.setState({menu_data: data}));
+      .get(`http://127.0.0.1:3000/api/menus/?3`)   
+      // .then(({ data }) => this.setState({menu_data: data}));
+      .then((data) => console.log(data.data));
   }; 
 
 
@@ -116,9 +117,9 @@ class MenuApp extends React.Component {
           </div>
 
           
-          <MenuSection data = {this.state.filtered_menu_data.filter(obj => obj.menu_section_num === 0)} />
+          {/* <MenuSection data = {this.state.filtered_menu_data.filter(obj => obj.menu_section_num === 0)} />
           <MenuSection data = {this.state.filtered_menu_data.filter(obj => obj.menu_section_num === 1)} />
-          <MenuSection data = {this.state.filtered_menu_data.filter(obj => obj.menu_section_num === 2)} />
+          <MenuSection data = {this.state.filtered_menu_data.filter(obj => obj.menu_section_num === 2)} /> */}
           
             <div className={styles[viewId]}>
               <div className={styles.viewtext} onClick={()=>this.click()}>View Full Menu</div>

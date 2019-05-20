@@ -1,0 +1,24 @@
+upstream instances {
+	server 54.241.151.134:3000;
+}
+
+server {
+	listen 80 default_server;
+	listen [::]:80 default_server;
+
+	root /var/www/html/tablelit;
+
+	index index.html index.htm index.nginx-debian.html;
+
+	server_name _;
+
+	location ~* \.(?:js|txt)$ { }
+
+	location / {
+		try_files $uri $uri/ =404;
+	}
+
+	location ^~ /api/menus {
+		proxy_pass http://instances;
+	}
+}

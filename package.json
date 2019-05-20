@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "jest test/test.js",
-    "start": "nodemon server/index.js",
+    "start": "nodemon server/app.js",
     "build": "webpack -d --watch",
-    "seed": "mysql -u root < schema.sql"
+    "stress": "artillery run test/artillery.yml"
   },
   "repository": {
     "type": "git",
@@ -24,6 +24,7 @@
     "@babel/plugin-proposal-class-properties": "^7.2.3",
     "@babel/preset-env": "^7.2.3",
     "@babel/preset-react": "^7.0.0",
+    "artillery": "^1.6.0-25",
     "axios": "^0.18.0",
     "babel-loader": "^8.0.4",
     "body-parser": "^1.18.3",
@@ -31,10 +32,13 @@
     "css-loader": "^2.1.0",
     "express": "^4.16.4",
     "fs": "0.0.1-security",
+    "ip": "^1.1.5",
     "morgan": "^1.9.1",
     "mysql": "^2.16.0",
     "mysql2": "^1.6.4",
+    "newrelic": "^5.1.0",
     "nodemon": "^1.18.9",
+    "pg": "^7.8.0",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "sequelize": "^4.42.0",

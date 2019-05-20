@@ -30,9 +30,10 @@ const requestHandler = (req, res) => {
         })
         .catch(err => console.error(err));
     }
+  } else {
+    res.statusCode = 404;
+    res.end();
   }
 };
 
-http.createServer(requestHandler).listen(3000, () => {
-  console.log('Connected to server');
-});
+http.createServer(requestHandler).listen(3000);
